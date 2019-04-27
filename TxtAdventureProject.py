@@ -69,17 +69,16 @@ def attack(attacker, attackee):  # The attack function
 def fight(attacker, enemy):  # The attack loop
     death = 0
     while death == 0:
-        if death == 0:
-            death = attack(attacker, enemy)
-        else:
-            print("You're dead")
-            death = 1
+        death = attack(attacker, enemy)
 
         if death == 0:
             death = attack(enemy, attacker)
         else:
             print("The enemy is dead")
-            death = 1
+            return "enemy"
+    else:
+        print("You're dead")
+        return "you"
 
 
 def buff(player):  # Function for buffing the player
@@ -126,6 +125,5 @@ enter = input("Please press Enter to continue.\n")
 
 skeleton1 = Enemy("The Skeleton", 10, 4, 5, 5)  # This creates a new Skeleton enemy. The order is the Name, HP, ATK, DEF, and Damage.
 
-fight(theClass, skeleton1)
-
-buff(theClass)  # This calls the buff function to give the player a level up (of sorts)
+if fight(theClass, skeleton1) == "enemy":
+    buff(theClass)  # This calls the buff function to give the player a level up (of sorts)
