@@ -105,22 +105,25 @@ elif user_class.lower() == 'mage':
 elif user_class.lower() == 'rogue':
     theClass = Rogue()
 
-
-print("This is your HP.", theClass.HP)  # Tells you your HP value
-print("This is your Attack.", theClass.ATK)  # Tells you your Attack value
-print("This is your Defense.", theClass.DEF)  # Tells you your Defense value
-
-enter = input("Please press Enter to continue.\n")
-
 print("You are now ready to play.\n")  # Tells the user that they are ready to play the game.
 
 enter = input("Please press Enter to continue.\n")  # Press the enter key to continue the game.
 
-print("An old mage tells you to go to the Dungeon and kill a Skeleton to prove your worth.\n")  # NPC tells you to go kill a monster to prove your worth.
+while True:
+    print("This is your HP.", theClass.HP)  # Tells you your HP value
+    print("This is your Attack.", theClass.ATK)  # Tells you your Attack value
+    print("This is your Defense.", theClass.DEF)  # Tells you your Defense value
 
-enter = input("Please press Enter to continue.\n")
+    enter = input("Please press Enter to continue.\n")
 
-skeleton1 = Enemy("The Skeleton", 10, 4, 5, 5)  # This creates a new Skeleton enemy. The order is the Name, HP, ATK, DEF, and Damage.
+    print("An old mage tells you to go to the Dungeon and kill a Skeleton to prove your worth.\n")  # NPC tells you to go kill a monster to prove your worth.
 
-if fight(theClass, skeleton1) == "enemy":
-    buff(theClass)  # This calls the buff function to give the player a level up (of sorts)
+    enter = input("Please press Enter to continue.\n")
+
+    skeleton1 = Enemy("The Skeleton", 10, 4, 5, 5)  # This creates a new Skeleton enemy. The order is the Name, HP, ATK, DEF, and Damage.
+
+    if fight(theClass, skeleton1) == "enemy":
+        buff(theClass)  # This calls the buff function to give the player a level up (of sorts)
+    else:
+        enter = input("Please press Enter to continue.\n")
+        continue  # Returns to the start of the loop
