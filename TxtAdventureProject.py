@@ -104,9 +104,6 @@ elif user_class.lower() == 'mage':
     theClass = Mage()
 elif user_class.lower() == 'rogue':
     theClass = Rogue()
-else:
-    print("Something's wrong.")
-    exit()
 
 
 print("This is your HP.", theClass.HP)  # Tells you your HP value
